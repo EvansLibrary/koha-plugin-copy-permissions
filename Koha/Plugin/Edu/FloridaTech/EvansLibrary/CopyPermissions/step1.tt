@@ -1,0 +1,30 @@
+[% INCLUDE 'doc-head-open.inc' %]
+ <title>Koha: Copy Permissions to Workstudy</title>
+[% INCLUDE 'doc-head-close.inc' %]
+</head>
+<body>
+[% INCLUDE 'header.inc' %]
+[% INCLUDE 'cat-search.inc' %]
+
+<div id="breadcrumbs"><a href="/cgi-bin/koha/mainpage.pl">Home</a> &rsaquo; <a href="/cgi-bin/koha/plugins/plugins-home.pl">Plugins</a> &rsaquo; Copy Permissions to Workstudy</div>
+
+<div id="doc3">
+    <h3>Copy Perrmissions to Workstudy</h3>
+
+    <p>This tool will copy base permissions for a workstudy employee.</p>
+
+	<form method="get">
+        <input type="hidden" name="class" value="[% CLASS %]"/>
+        <input type="hidden" name="method" value="[% METHOD %]"/>
+        <input type="hidden" name="next_step" value="2"/>
+
+        <p>
+            <label for="biblionumber">Florida Tech ID: </label>
+            <input type="text" name="cardnumber"/>
+        </p>
+
+		<p><input type="submit" value="Look up patron" /></p>
+
+	</form>
+
+[% INCLUDE 'intranet-bottom.inc' %]

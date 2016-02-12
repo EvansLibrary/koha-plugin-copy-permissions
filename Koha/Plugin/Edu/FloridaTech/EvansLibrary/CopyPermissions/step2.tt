@@ -1,0 +1,63 @@
+[% INCLUDE 'doc-head-open.inc' %]
+ <title>Koha: Copy Permissions to Workstudy</title>
+[% INCLUDE 'doc-head-close.inc' %]
+</head>
+<body>
+[% INCLUDE 'header.inc' %]
+[% INCLUDE 'cat-search.inc' %]
+
+<div id="breadcrumbs"><a href="/cgi-bin/koha/mainpage.pl">Home</a> &rsaquo; <a href="/cgi-bin/koha/plugins/plugins-home.pl">Plugins</a> &rsaquo; Copy Permissions to Workstudy</div>
+
+<div id="doc3">
+    <h3>Copy Perrmissions to Workstudy</h3>
+
+    [% IF record %]
+        <p>Verify this is the patron you wish to copy permissions to. <strong>This action cannot be undone.</strong></p>
+
+        <form method="get">
+            <input type="hidden" name="class" value="[% CLASS %]"/>
+            <input type="hidden" name="method" value="[% METHOD %]"/>
+            <input type="hidden" name="next_step" value="3"/>
+            <input type="hidden" name="borrowernumber" value="[% record.borrowernumber %]"/>
+
+            <p><strong>[% record.surname %], [% record.firstname %] ([% record.cardnumber %] - [% record.borrowernumber %])</strong></p>
+            <p><strong>Current Permissions, if you continue, they will be deleted</strong></p>
+            <p><strong>Super Librarian?</strong> [% record.SuperLib %]</p>
+            <p><strong>Circulation Permissions:</strong> [% record.CircPermissions %]</p>
+            <p><strong>View Staff Interface:</strong> [% record.ViewStaffInterface %]</p>
+            <p><strong>Manage Parameters:</strong> [% record.ManParams %]</p>
+            <p><strong>Add/Modify Patrons:</strong> [% record.AddModifyPatrons %]</p>
+            <p><strong>Modify Permissions:</strong> [% record.ModifyPermissions %]</p>
+            <p><strong>Reserve Permissions:</strong> [% record.ReservePermissions %]</p>
+            <p><strong>Borrow Books:</strong> [% record.BorrowBooks %]</p>
+            <p><strong>Edit Catalogue:</strong> [% record.EditCatalogue %]</p>
+            <p><strong>Update Charges:</strong> [% record.UpdateCharges %]</p>
+            <p><strong>Acqusition:</strong> [% record.Acquisition %]</p>
+            <p><strong>Management:</strong> [% record.Management %]</p>
+            <p><strong>Tools:</strong> [% record.Tools %]</p>
+            <p><strong>Edit Authories:</strong> [% record.EditAuthories %]</p>
+            <p><strong>Series:</strong> [% record.Series %]</p>
+            <p><strong>Reports:</strong> [% record.Reports %]</p>
+            <p><strong>Staff Access:</strong> [% record.StaffAccess %]</p>
+            <p><strong>Course Reserves:</strong> [% record.CourseReserves %]</p>
+            <p><strong>Plugins:</strong> [% record.Plugins %]</p>
+
+            <p><input type="submit" value="Replace Permisssions" onclick="return confirm('Are you sure you want to replace this patrons permissions?')"/></p>
+
+        </form>
+    [% ELSE %]
+        <p>Verify this is the patron you wish to copy permissions to. <strong>This action cannot be undone.</strong></p>
+
+        <form method="get">
+            <input type="hidden" name="class" value="[% CLASS %]"/>
+            <input type="hidden" name="method" value="[% METHOD %]"/>
+            <input type="hidden" name="next_step" value="3"/>
+            <input type="hidden" name="borrowernumber" value="[% patron.borrowernumber %]"/>
+            <p><strong>[% patron.surname %], [% patron.firstname %] ([% patron.borrowernumber %])</strong></p>
+            <p><strong>No Current Permissions</strong></p>
+
+            <p><input type="submit" value="Replace Permisssions" onclick="return confirm('Are you sure you want to replace this patrons permissions?')"/></p>
+       </form>
+    [% END %]
+
+[% INCLUDE 'intranet-bottom.inc' %]
